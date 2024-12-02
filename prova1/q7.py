@@ -1,6 +1,4 @@
 import time
-import matplotlib.pyplot as plt
-import numpy as np
 
 # Método de Newton e Secante
 def f(x):
@@ -46,34 +44,6 @@ def metodo_secante(x0, x1, epsilon, max_iter=100):
             return None
 
     return x1, iter_count_secante
-
-# Plotando comparação das iterações dos métodos de Newton e Secante em função do tempo
-def plotar_iteracoes(x0, x1, epsilon):
-    iteracoes_newton = []
-    iteracoes_secante = []
-    tempo_newton = []
-    tempo_secante = []
-
-    for i in range(1, 100):
-        start_newton = time.time()
-        metodo_newton(x0, epsilon, i)
-        end_newton = time.time()
-        tempo_newton.append(end_newton - start_newton)
-        iteracoes_newton.append(i)
-
-        start_secante = time.time()
-        metodo_secante(x0, x1, epsilon, i)
-        end_secante = time.time()
-        tempo_secante.append(end_secante - start_secante)
-        iteracoes_secante.append(i)
-
-    plt.plot(iteracoes_newton, tempo_newton, label="Newton")
-    plt.plot(iteracoes_secante, tempo_secante, label="Secante")
-    plt.xlabel("Iterações")
-    plt.ylabel("Tempo (s)")
-    plt.title("Iterações x Tempo")
-    plt.legend()
-    plt.show()
     
 # Entrada do usuário
 x0 = float(input("Digite o primeiro ponto inicial (x0): "))
@@ -101,5 +71,3 @@ if end_newton-start_newton < end_secante-start_secante:
     print(f'O método de Newton foi mais rápido.')
 else:
     print(f'O método da Secante foi mais rápido.')
-    
-plotar_iteracoes(x0, x1, epsilon)
