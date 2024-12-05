@@ -1,7 +1,6 @@
 from math import log, ceil
 from time import perf_counter
 
-
 def f(x):
     return (x - 1)**2
 
@@ -54,13 +53,15 @@ def metodo_bissecao(a, b, epsilon):
     elif iteracoes > k:
         print(f"Esta função não tem raiz neste intervalo\n Iterações: {iteracoes}, Limite: {k}")
  
-print("== Método  da bisseção ==")
-a = float(input("Primeiro número do intervalo: "))
-b = float(input("Segundo número do intervalo: "))
-epsilon = float(input("Valor da precisão: "))
-
-start_time = perf_counter()
-metodo_bissecao(a, b, epsilon)
-end_time = perf_counter()
-
-print(f"Tempo de execução: {end_time - start_time:.5f}s")
+# main
+if __name__ == "__main__":
+    print("== Método  da bisseção ==")
+    a = float(input("Primeiro número do intervalo: "))
+    b = float(input("Segundo número do intervalo: "))
+    epsilon = float(input("Valor da precisão: "))
+    
+    start_time = perf_counter()
+    metodo_bissecao(a, b, epsilon)
+    end_time = perf_counter()
+    
+    print(f"Tempo de execução: {end_time - start_time:.5f}s")

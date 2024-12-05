@@ -44,30 +44,32 @@ def metodo_secante(x0, x1, epsilon, max_iter=100):
             return None
 
     return x1, iter_count_secante
+
+# main
+if __name__ == "__main__":
+    # Entrada do usuário
+    x0 = float(input("Digite o primeiro ponto inicial (x0): "))
+    x1 = float(input("Digite o segundo ponto inicial (x1): "))
+    epsilon = float(input("Digite o valor da precisão: "))
     
-# Entrada do usuário
-x0 = float(input("Digite o primeiro ponto inicial (x0): "))
-x1 = float(input("Digite o segundo ponto inicial (x1): "))
-epsilon = float(input("Digite o valor da precisão: "))
-
-# Encontrando a raiz
-print(f'=== Método Newton ===')
-start_newton = time.time()
-raiz_newton, iter_newton = metodo_newton(x0, epsilon)
-end_newton = time.time()
-print(f"Raiz: {raiz_newton}")
-print(f'Tempo de execução {end_newton-start_newton}s')
-print()
-print(f'=== Secante ===')
-start_secante = time.time()
-raiz_secante, iter_secante = metodo_secante(x0, x1, epsilon)
-end_secante = time.time()
-print(f"Raiz: {raiz_secante}")
-print(f'Tempo de execução {end_secante-start_secante}s')
-print()
-print(f'=== Conclusão ===')
-
-if end_newton-start_newton < end_secante-start_secante:
-    print(f'O método de Newton foi mais rápido.')
-else:
-    print(f'O método da Secante foi mais rápido.')
+    # Encontrando a raiz
+    print(f'=== Método Newton ===')
+    start_newton = time.time()
+    raiz_newton, iter_newton = metodo_newton(x0, epsilon)
+    end_newton = time.time()
+    print(f"Raiz: {raiz_newton}")
+    print(f'Tempo de execução {end_newton-start_newton}s')
+    print()
+    print(f'=== Secante ===')
+    start_secante = time.time()
+    raiz_secante, iter_secante = metodo_secante(x0, x1, epsilon)
+    end_secante = time.time()
+    print(f"Raiz: {raiz_secante}")
+    print(f'Tempo de execução {end_secante-start_secante}s')
+    print()
+    print(f'=== Conclusão ===')
+    
+    if end_newton-start_newton < end_secante-start_secante:
+        print(f'O método de Newton foi mais rápido.')
+    else:
+        print(f'O método da Secante foi mais rápido.')
