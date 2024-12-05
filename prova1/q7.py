@@ -2,7 +2,7 @@ import time
 
 # Método de Newton e Secante
 def f(x):
-    return x**2 - 2*x + 1
+    return x**3 - 9*x + 3
 
 def derivada(x, epsilon):
     return (f(x + epsilon) - f(x)) / epsilon
@@ -51,24 +51,24 @@ if __name__ == "__main__":
     x0 = float(input("Digite o primeiro ponto inicial (x0): "))
     x1 = float(input("Digite o segundo ponto inicial (x1): "))
     epsilon = float(input("Digite o valor da precisão: "))
-    
+
     # Encontrando a raiz
     print(f'=== Método Newton ===')
-    start_newton = time.time()
+    start_newton = time.perf_counter()
     raiz_newton, iter_newton = metodo_newton(x0, epsilon)
-    end_newton = time.time()
+    end_newton = time.perf_counter()
     print(f"Raiz: {raiz_newton}")
     print(f'Tempo de execução {end_newton-start_newton}s')
     print()
     print(f'=== Secante ===')
-    start_secante = time.time()
+    start_secante = time.perf_counter()
     raiz_secante, iter_secante = metodo_secante(x0, x1, epsilon)
-    end_secante = time.time()
+    end_secante = time.perf_counter()
     print(f"Raiz: {raiz_secante}")
     print(f'Tempo de execução {end_secante-start_secante}s')
     print()
     print(f'=== Conclusão ===')
-    
+
     if end_newton-start_newton < end_secante-start_secante:
         print(f'O método de Newton foi mais rápido.')
     else:
