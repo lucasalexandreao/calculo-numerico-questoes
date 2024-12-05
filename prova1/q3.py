@@ -48,20 +48,22 @@ def metodo_bissecao(a, b, epsilon):
         pms = []
         pontos.sort()
 
-    if raiz is not None:
-        print(f"Iterações: {iteracoes}\nRaiz: {raiz:.5f}\nLimite: {k}")
-    elif iteracoes > k:
-        print(f"Esta função não tem raiz neste intervalo\n Iterações: {iteracoes}, Limite: {k}")
+    return raiz, iteracoes, k
+
  
 # main
 if __name__ == "__main__":
+
     print("== Método  da bisseção ==")
     a = float(input("Primeiro número do intervalo: "))
     b = float(input("Segundo número do intervalo: "))
     epsilon = float(input("Valor da precisão: "))
-    
+
     start_time = perf_counter()
-    metodo_bissecao(a, b, epsilon)
+    raiz, iteracoes, k = metodo_bissecao(a, b, epsilon)
     end_time = perf_counter()
-    
-    print(f"Tempo de execução: {end_time - start_time:.5f}s")
+
+    if raiz is not None:
+        print(f"Raiz: {raiz:.5f}\nIterações: {iteracoes}, Limite: {k}\nTempo: {end_time - start_time}")
+    elif iteracoes > k:
+        print(f"Esta função não tem raiz.\nIterações: {iteracoes}, Limite: {k}\nTempo: {end_time - start_time}")
