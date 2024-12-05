@@ -22,10 +22,7 @@ def falsa_posicao(a, b, epsilon):
         for idx in range(len(pontos) - 1):
             p1 = pontos[idx]
             p2 = pontos[idx + 1]
-            if f(p2) - f(p1) != 0:
-                pm = (p1 * f(p2) - p2 * f(p1)) / (f(p2) - f(p1))
-            else:
-                raise Exception("Este intervalo não é válido, pois resulta numa divisão por zero.")
+            pm = (p1 * f(p2) - p2 * f(p1)) / (f(p2) - f(p1))
             if abs(f(pm)) < epsilon:
                 raiz = pm
                 break
@@ -64,11 +61,15 @@ if __name__ == "__main__":
     b = float(input("Segundo número do intervalo: "))
     epsilon = float(input("Epsilon: "))
 
-    start_time = perf_counter()
-    raiz, iteracoes, k = falsa_posicao(a, b, epsilon)
-    end_time = perf_counter()
+    try:
+        start_time = perf_counter()
+        raiz, iteracoes, k = falsa_posicao(a, b, epsilon)
+        end_time = perf_counter()
 
-    if raiz is not None:
-        print(f"Raiz: {raiz:.5f}\nIterações: {iteracoes}, Limite: {k}\nTempo: {end_time - start_time}")
-    elif iteracoes > k:
-        print(f"Esta função não tem raiz.\nIterações: {iteracoes}, Limite: {k}\nTempo: {end_time - start_time}")
+        if raiz is not None:
+            print(f"Raiz: {raiz:.5f}\nIterações: {iteracoes}, Limite: {k}\nTempo: {end_time - start_time}")
+        elif iteracoes > k:
+            print(f"Esta função não tem raiz.\nIterações: {iteracoes}, Limite: {k}\nTempo: {end_time - start_time}")
+    except ZeroDivisionError:
+        print("Intervalo inválido! Ele gera divisão por zero.")
+
