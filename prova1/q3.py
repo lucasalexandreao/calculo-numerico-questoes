@@ -64,6 +64,6 @@ if __name__ == "__main__":
     end_time = perf_counter()
 
     if raiz is not None:
-        print(f"Raiz: {raiz:.5f}\nIterações: {iteracoes}, Limite: {k}\nTempo: {end_time - start_time}")
+        print(f"Raiz: {raiz:.5f}\nIterações: {iteracoes}, Limite: {k}\nTempo: {end_time - start_time} segundos")
     elif iteracoes > k:
-        print(f"Esta função não tem raiz.\nIterações: {iteracoes}, Limite: {k}\nTempo: {end_time - start_time}")
+        print(f"Esta função não tem raiz neste intervalo.\nIterações: {iteracoes}, Limite: {k}\nTempo: {end_time - start_time} segundos")
