@@ -1,7 +1,8 @@
 import math
 
 def f(x):
-    return 40.0744 * x - math.e ** (19.5352 - 39.0744 * x)
+    return (math.e ** (39.0744 * x)) * (1 + 39.0744 * x) - (math.e ** 19.5372)
+    #return 40.0744 * x - math.e ** (19.5372 - 39.0744 * x)
 
 def derivada(x, epsilon):
     return (f(x + epsilon) - f(x)) / epsilon
