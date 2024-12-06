@@ -23,4 +23,4 @@ def metodo_newton(x0, epsilon):
 
 if __name__ == "__main__":
     raiz, iteracoes = metodo_newton(2, 0.0001)
-    print(f"Raiz: {raiz}\nIterações: {iteracoes}")
+    print(f"Vmp: {raiz:.5f} V\nIterações: {iteracoes}")
