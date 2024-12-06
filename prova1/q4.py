@@ -1,5 +1,6 @@
 from math import log, ceil
 from time import perf_counter
+from q3 import metodo_bissecao
 
 
 def f(x):
@@ -56,20 +57,35 @@ def falsa_posicao(a, b, epsilon):
 # main
 if __name__ == "__main__":
 
-    print("== Método  da falsa posição ==")
     a = float(input("Primeiro número do intervalo: "))
     b = float(input("Segundo número do intervalo: "))
     epsilon = float(input("Epsilon: "))
+    
+    print("\n== Método da falsa posição ==")
 
     try:
         start_time = perf_counter()
-        raiz, iteracoes, k = falsa_posicao(a, b, epsilon)
+        raiz_p, iteracoes_p, k_p = falsa_posicao(a, b, epsilon)
         end_time = perf_counter()
 
-        if raiz is not None:
-            print(f"Raiz: {raiz:.5f}\nIterações: {iteracoes}, Limite: {k}\nTempo: {end_time - start_time} segundos")
-        elif iteracoes > k:
-            print(f"Esta função não tem raiz.\nIterações: {iteracoes}, Limite: {k}\nTempo: {end_time - start_time} segundos")
+        if raiz_p is not None:
+            print(f"Raiz: {raiz_p:.5f}\nIterações: {iteracoes_p}, Limite: {k_p}\nTempo: {end_time - start_time} segundos")
+        elif iteracoes_p > k_p:
+            print(f"Esta função não tem raiz.\nIterações: {iteracoes_p}, Limite: {k_p}\nTempo: {end_time - start_time} segundos")
+    except ZeroDivisionError:
+        print("Intervalo inválido! Ele gera divisão por zero.")
+        
+    print("\n== Método da bisseção ==")
+    
+    try:
+        start_time_bissecao = perf_counter()
+        raiz_b, iteracoes_b, k_b = metodo_bissecao(a, b, epsilon)
+        end_time_bissecao = perf_counter()
+
+        if raiz_b is not None:
+            print(f"Raiz: {raiz_b:.5f}\nIterações: {iteracoes_b}, Limite: {k_b}\nTempo: {end_time_bissecao - start_time_bissecao} segundos")
+        elif iteracoes_b > k_b:
+            print(f"Esta função não tem raiz.\nIterações: {iteracoes_b}, Limite: {k_b}\nTempo: {end_time_bissecao - start_time_bissecao} segundos")
     except ZeroDivisionError:
         print("Intervalo inválido! Ele gera divisão por zero.")
 
