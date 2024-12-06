@@ -1,5 +1,5 @@
 def f(x):
-    return x ** 3
+    return x ** 2
 
 def erro_percentual(real, calculado):
     try:
@@ -27,7 +27,7 @@ ordem3_derivada3 = -(-f(x) + 3 * f(x - h) - 3 * f(x - 2 * h) + f(x - 3 * h)) / (
 ordem3_derivada4 = -(-f(x - 3 * h) + 8 * f(x - 2 * h) - 13 * f(x - h) + 13 * f(x + h) - 8 * f(x + 2 * h) + f(x + 3 * h)) / (8 * (h ** 3))
 
 valor_esperado1 =float(input("Qual o valor esperado da ordem 1? "))
-if (erro_percentual(valor_esperado1, ordem1_derivada1) == None):
+if (erro_percentual(valor_esperado1, ordem1_derivada1) is None):
     print("No calculo do erro esse valor gera divisão por zero!")
     print(f"A derivada de primeira ordem da função no ponto desejado é: {ordem1_derivada1}")
     print(f"A derivada de primeira ordem da função no ponto desejado é: {ordem1_derivada2}")
@@ -42,7 +42,7 @@ else:
 print("\n")
 
 valor_esperado2 =float(input("Qual o valor esperado da ordem 2? "))
-if (erro_percentual(valor_esperado2, ordem2_derivada1) == None):
+if (erro_percentual(valor_esperado2, ordem2_derivada1) is None):
     print("No calculo do erro esse valor gera divisão por zero!")
     print(f"A derivada de primeira ordem da função no ponto desejado é: {ordem2_derivada1}")
     print(f"A derivada de primeira ordem da função no ponto desejado é: {ordem2_derivada2}")
@@ -57,7 +57,7 @@ else:
 print("\n")
 
 valor_esperado3 =float(input("Qual o valor esperado da ordem 3? "))
-if (erro_percentual(valor_esperado3, ordem3_derivada1) == None):
+if (erro_percentual(valor_esperado3, ordem3_derivada1) is None):
     print("No calculo do erro esse valor gera divisão por zero!")
     print(f"A derivada de primeira ordem da função no ponto desejado é: {ordem3_derivada1}")
     print(f"A derivada de primeira ordem da função no ponto desejado é: {ordem3_derivada2}")

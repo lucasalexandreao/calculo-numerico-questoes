@@ -27,7 +27,7 @@ def ponto_fixo(a, tol, iter_max):
 if __name__ == "__main__":
     # Valores de entrada
     r = 17 # Raio inicial
-    iter_max = 5
+    iter_max = 6
     tol = float(input("Digite o valor da tolerância: "))
     
     # Método do ponto fixo

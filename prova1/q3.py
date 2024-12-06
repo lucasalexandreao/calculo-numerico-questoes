@@ -2,7 +2,7 @@ from math import log, ceil
 from time import perf_counter
 
 def f(x):
-    return (x - 1)**2
+    return x ** 4 - 4 * x
 
 # Função para método da bisseção
 def metodo_bissecao(a, b, epsilon):
