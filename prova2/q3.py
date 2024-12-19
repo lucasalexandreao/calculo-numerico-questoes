@@ -1,7 +1,6 @@
 import numpy as np
+np.seterr(divide = 'raise')
 
-# VERIFICAR DETERMINANTE
-# VERIFICAR A11
 
 def gauss(a, b):
     n = len(b)
@@ -15,6 +14,7 @@ def gauss(a, b):
 
     return a, b
 
+
 def back_substitution(a, b):
     n = len(b)
     x = np.zeros(n)
@@ -26,11 +26,19 @@ def back_substitution(a, b):
         x[i] = (b[i] - s) / a[i][i]
     return x
 
+
 a = np.array([[1,-1,1],[1,0,0],[1,2,4]])
 b = np.array([4,1,-1])
-aa, bb = gauss(a, b)
-x = back_substitution(aa, bb)
-print("Solução do sistema:", x)
+
+if np.linalg.det(a):
+    try:
+        aa, bb = gauss(a, b)
+        x = back_substitution(aa, bb)
+        print("Solução do sistema:", x)
+    except:
+        print("Pivô = 0! Matriz inválida.\nTente com outra matriz.")
+else:
+    print("A matriz A possui determinante = 0, logo, é inválida.\nTente com outra matriz.")
 
 
 
