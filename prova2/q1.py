@@ -38,8 +38,8 @@ def solve_linear_system(A, B):
 
 
 def main():
-    A = [[1, -1, 1], [1, 0, 0], [1, 2, 4]]
-    B = [4, 1, -1]
+    A = np.array([[1, -1, 1], [1, 0, 0], [1, 2, 4]])
+    B = np.array([4, 1, -1])
 
     if np.linalg.det(A):
         x = solve_linear_system(A, B)
