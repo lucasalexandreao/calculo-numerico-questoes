@@ -1,8 +1,8 @@
-from math import log, ceil
+from math import log, ceil, sqrt
 from time import perf_counter
 
 def f(x):
-    return x ** 4 - 4 * x
+    return (x / (1-x)) * sqrt(7/(2 + x)) - 0.04
 
 # Função para método da bisseção
 def metodo_bissecao(a, b, epsilon):

@@ -1,10 +1,11 @@
 import time
+from math import sqrt
 import matplotlib.pyplot as plt
 import numpy as np
 
 # Método de Newton e Secante
 def f(x):
-    return x**2 - 2*x + 1
+    return (x / (1-x)) * sqrt(7/(2 + x)) - 0.04
 
 def derivada(x, epsilon):
     return (f(x + epsilon) - f(x)) / epsilon

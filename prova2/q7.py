@@ -26,15 +26,20 @@ def load_data(path):
     data['x'] = data['x'].astype(float) # converte os numeros de string para float # não pode ter cabeçalho
     data['y'] = data['y'].astype(float)
     return data.values.tolist() # converte o pd em uma lista de pares ordenados
-    
-data = './inputs.csv'
-T = load_data(data)
 
-p= lambda x: interpolL(x,T) # define o polinomio interpolador p(x)
-print(p(9.7))
-x=np.linspace(0,10,500)
+def main():
+    data = './inputs.csv'
+    T = load_data(data)
 
-plot(x, p)
+    p= lambda x: interpolL(x,T) # define o polinomio interpolador p(x)
+    print(p(9.7))
+    x=np.linspace(0,10,500)
+
+    plot(x, p)
+
+
+if __name__ == '__main__':
+    main()
 
 
     
