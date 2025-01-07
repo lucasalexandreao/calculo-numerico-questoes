@@ -1,3 +1,5 @@
+import numpy as np
+
 def gauss_seidel(A, b, x0=None, tol=1e-6, max_iter=1000):
     """
     Resolve um sistema linear Ax = b usando o método de Gauss-Seidel.
@@ -36,6 +38,7 @@ def gauss_seidel(A, b, x0=None, tol=1e-6, max_iter=1000):
 
     raise ValueError("O método de Gauss-Seidel não convergiu após o número máximo de iterações.")
 
+
 # Função para verificar a diagonal dominante (opcional, mas recomendada)
 def is_diagonally_dominant(A):
     """
@@ -48,18 +51,41 @@ def is_diagonally_dominant(A):
             return False
     return True
 
-# Exemplo de uso
-A = [[4, -1, 0, 0],
-     [-1, 4, -1, 0],
-     [0, -1, 4, -1],
-     [0, 0, -1, 3]]
 
-b = [15, 10, 10, 10]
+def sassenfeld(A):
+    betas = [1] * len(A)
+    for i in range(len(A)):
+        diagonal = abs(A[i][i])
+        off_diagonal = list(abs(A[i][j]) if j != i else 0 for j in range(len(A)))
+        betas[i] = np.dot(off_diagonal, betas)
+        if diagonal <= betas[i]:
+            return False
+    return True
 
-# Verifica a convergência antes de resolver
-if not is_diagonally_dominant(A):
-    print("Aviso: A matriz não é estritamente diagonal dominante. O método pode não convergir.")
 
-x, iter_count = gauss_seidel(A, b)
-print(f"Solução aproximada: {x}")
-print(f"Número de iterações: {iter_count}")
+def main():
+    # Exemplo de uso
+    A = [[4, -1, 0, 0],
+         [-1, 4, -1, 0],
+         [0, -1, 4, -1],
+         [0, 0, -1, 3]]
+
+    b = [15, 10, 10, 10]
+
+    if np.linalg.det(A):
+        print("#### CRITÉRIOS DE CONVERGÊNCIA ####")
+        rows_criterion = is_diagonally_dominant(A)
+        sassenfeld_criterion = sassenfeld(A)
+        print(f"Critério das linhas: {"Passou." if rows_criterion else "Não passou."}")
+        print(f"Critério de Sassenfeld: {"Passou." if sassenfeld_criterion else "Não passou."}")
+        print(f"Ou seja: {"O méotodo irá convergir."if sassenfeld_criterion or rows_criterion else "O método pode não convergir."}\n")
+
+        x, iter_count = gauss_seidel(A, b)
+        print("#### SOLUÇÃO ####")
+        print(f"Solução aproximada: {x}")
+        print(f"Número de iterações: {iter_count}")
+    else:
+        print("A matriz A possui determinante = 0, logo, é inválida.\nTente com outra matriz.")
+
+if __name__ == '__main__':
+    main()
