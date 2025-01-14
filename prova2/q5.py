@@ -87,5 +87,6 @@ def main():
     else:
         print("A matriz A possui determinante = 0, logo, é inválida.\nTente com outra matriz.")
 
+
 if __name__ == '__main__':
     main()
