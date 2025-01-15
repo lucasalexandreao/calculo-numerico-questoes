@@ -14,9 +14,6 @@ spline = CubicSpline(x_points, y_points)
 x = np.linspace(0, 10, 500)
 y = spline(x)
 
-#print(spline(0.25))
-
-
 # Cria o gráfico
 plt.figure(figsize=(8, 6))
 plt.plot(x, y, color='#FF4500', linewidth=1.5, label="Interpolação Spline Cúbica")
@@ -27,7 +24,7 @@ plt.ylabel('Energia gerada em Kwh')
 plt.grid()
 plt.legend()
 
-# Exibe o valor interpolado em x=2
+# Exibe o valor interpolado em x=0.25
 print(f"Valor interpolado em x=0.25: {spline(0.25)}")
 
 # Mostra o gráfico

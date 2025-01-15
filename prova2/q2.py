@@ -1,6 +1,6 @@
-# EM PRODUÇÃO
 import numpy as np
-np.seterr(divide = 'raise')
+np.seterr(invalid='raise', divide='raise')
+
 
 def backward_substitution(a, b):
     n = len(b)

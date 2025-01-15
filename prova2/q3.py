@@ -1,6 +1,6 @@
 import numpy as np
 from q2 import backward_substitution
-np.seterr(divide = 'raise')
+np.seterr(invalid='raise', divide='raise')
 
 
 def gauss(a, b):
