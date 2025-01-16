@@ -18,9 +18,9 @@ y = spline(x)
 plt.figure(figsize=(8, 6))
 plt.plot(x, y, color='#FF4500', linewidth=1.5, label="Interpolação Spline Cúbica")
 plt.scatter(x_points, y_points, color='blue', s=40, marker='o', label="Pontos originais") # Adiciona os pontos originais
-plt.title('Estimativa dos valores gerados pela usina solar')
-plt.xlabel('Valores medidos em horas')
-plt.ylabel('Energia gerada em Kwh')
+plt.title('Gráfico do polinômio interpolador')
+plt.xlabel('Eixo x')
+plt.ylabel('Eixo y')
 plt.grid()
 plt.legend()
 

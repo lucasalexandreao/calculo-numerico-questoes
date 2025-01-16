@@ -18,7 +18,7 @@ def sassenfeld(A):
         diagonal = abs(A[i][i])
         off_diagonal = list(abs(A[i][j]) if j != i else 0 for j in range(n))
         betas[i] = np.dot(off_diagonal, betas) / diagonal
-        if diagonal <= betas[i]:
+        if betas[i] >= 1:
             return False
     return True
 
