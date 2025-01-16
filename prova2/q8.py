@@ -1,5 +1,5 @@
 import numpy as np
-from q7 import interpolL, load_data, plot
+from q7 import interpolL, load_data
 from math import e
 
 def main():
@@ -33,10 +33,6 @@ def main():
     print("\t# LIMITANTES")
     print(f"\t\tCorolário 1: Erro <= {cor1}")
     print(f"\t\tCorolário 2: Erro < {cor2}")
-
-    x=np.linspace(0,10,500)
-
-    plot(x, p)
 
 
 if __name__ == '__main__':
