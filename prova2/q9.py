@@ -52,7 +52,7 @@ def max_in_table(table, n):
 def max_in_table(table, n):
     most = 0
     for i in table:
-        abs_value = abs(i[-1])
+        abs_value = abs(i[n+1])
         if abs_value > most:
             most = abs_value
     return most
