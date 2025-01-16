@@ -81,7 +81,7 @@ def main():
     #  LETRA C
     max_half_yearly_estimate = solution_a + sum(y) + error_margin
     answer_c = "não" if max_half_yearly_estimate > 6 else "sim,"
-    print(f"c) O valor máximo estimado é {max_half_yearly_estimate:.2f}%, logo, {answer_c} não podemos garantir que a inflação semestral foi menor que 6%.")
+    print(f"c) O valor máximo estimado é {max_half_yearly_estimate:.2f}%, logo, {answer_c} podemos garantir que a inflação semestral foi menor que 6%.")
 
     # LETRA D
     table_d, solution_d = newton_polynomial(x, y, 7, 2, 4)
