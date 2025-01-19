@@ -14,6 +14,7 @@ def interpolL(x, T):
     return Soma
 
 
+"""
 def plot(x, p):
     plt.figure(figsize=(5, 5))
     plt.plot(x, p(x), color='#FF4500', marker='', linewidth=1.0)
@@ -22,6 +23,7 @@ def plot(x, p):
     plt.ylabel('Energia gerada em Kwh')
     plt.grid()
     plt.show()
+"""
 
 
 def load_data(path):
@@ -37,9 +39,11 @@ def main():
 
     p = lambda x: interpolL(x, T)  # define o polinomio interpolador p(x)
     print(f"Valor: {p(0.47)}")
-    x = np.linspace(0, 10, 500)
 
+    """
+    x = np.linspace(0, 10, 500)
     plot(x, p)
+    """
 
 
 if __name__ == '__main__':
