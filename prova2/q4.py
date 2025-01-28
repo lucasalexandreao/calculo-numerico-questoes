@@ -78,14 +78,15 @@ def main():
 
         print("#### SOLUÇÃO ####")
 
-        solution, iterations = gauss_jacobi(A, b, x0)
-
-        if is_appropiate_solution(A, solution, b):
-            print("Solução aproximada:", solution)
-            print("Número de iterações:", iterations)
-        else:
-            print("A solução encontrada não é apropriada!")
-
+        try:
+            solution, iterations = gauss_jacobi(A, b, x0)
+            if is_appropiate_solution(A, solution, b):
+                print("Solução aproximada:", solution)
+                print("Número de iterações:", iterations)
+            else:
+                print("A solução encontrada não é apropriada!")
+        except:
+            print("O método não convergiu.")
 
 
 if __name__ == '__main__':
