@@ -32,5 +32,6 @@ def main():
     
     print(f"A área aproximada é {approximate_area}")
 
+
 if __name__ == "__main__":
     main()

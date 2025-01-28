@@ -19,10 +19,10 @@ def simpson8(n, a, b, function):
         x = a + delta * i
         if (i == 0 or i == n):
             sum1 += function(x)
-            
-        elif ((i - 1) % 3 == 0 and i != 1):
+        elif i % 3 == 0:
             sum3 += 2 * function(x)
-            
+        #elif ((i - 1) % 3 == 0 and i != 1):
+        #    sum3 += 2 * function(x)
         else:
             sum2 += 3 * function(x)
             
