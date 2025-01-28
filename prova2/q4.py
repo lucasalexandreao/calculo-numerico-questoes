@@ -56,8 +56,8 @@ def gauss_jacobi(A, b, x0, tol=1e-6, max_iter=1000):
 
 def main():
     # Exemplo de uso:
-    A = np.array([[10, 2, 1], [1, 5, 1], [2, 3, 10]])
-    b = np.array([7, -8, 6])
+    A = np.array([[1, 0.5, -0.1, 0.1], [0.2, 1, -0.2, -0.1], [-0.1, -0.2, 1, 0.2], [0.1, 0.3, 0.2, 1]])
+    b = np.array([0.2, -2.6, 1, -2.5])
 
     #A = np.array([[1, 3, 1], [5, 2, 2], [0, 6, 8]])
     #b = np.array([-2, 3, -6])
@@ -77,16 +77,15 @@ def main():
         print(f"Critério das linhas: {"Passou! O método irá convergir." if is_diagonally_dominant(A) else "Não passou! o método pode não convergir."}\n")
 
         print("#### SOLUÇÃO ####")
-        try:
-            solution, iterations = gauss_jacobi(A, b, x0)
 
-            if is_appropiate_solution(A, solution, b):
-                print("Solução aproximada:", solution)
-                print("Número de iterações:", iterations)
-            else:
-                print("A solução encontrada não é apropriada!")
-        except:
-            print("O método não convergiu.")
+        solution, iterations = gauss_jacobi(A, b, x0)
+
+        if is_appropiate_solution(A, solution, b):
+            print("Solução aproximada:", solution)
+            print("Número de iterações:", iterations)
+        else:
+            print("A solução encontrada não é apropriada!")
+
 
 
 if __name__ == '__main__':

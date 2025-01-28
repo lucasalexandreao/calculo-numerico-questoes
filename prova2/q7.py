@@ -38,7 +38,7 @@ def main():
     T = load_data(data)
 
     p = lambda x: interpolL(x, T)  # define o polinomio interpolador p(x)
-    print(f"Valor: {p(0.47)}")
+    print(f"Valor: {p(0.45)}")
 
     """
     x = np.linspace(0, 10, 500)
